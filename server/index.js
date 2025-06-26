@@ -13,9 +13,7 @@ const droneRoutes = require('./routes/droneRoutes'); // Add drone routes
 const app = express();
 
 
-const allowedOrigins = ['http://localhost:5173',
-  'https://dronesurveymanager.vercel.app'
-];
+const allowedOrigins = ['http://localhost:5173', 'https://dronesurveymanager.vercel.app'];
 
 app.use(cors({
   origin: (origin, callback) => {
