@@ -13,7 +13,8 @@ const droneRoutes = require('./routes/droneRoutes'); // Add drone routes
 const app = express();
 
 
-const allowedOrigins = ['http://localhost:5173/', ''];
+const allowedOrigins = ['http://localhost:5173'];
+
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
