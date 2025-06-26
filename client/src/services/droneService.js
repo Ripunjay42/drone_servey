@@ -4,7 +4,7 @@ import useDroneStore from '../stores/droneStore';
 
 const API_URL = import.meta.env.VITE_API_URL 
   ? `${import.meta.env.VITE_API_URL}/drones`
-  : 'http://localhost:5000/api/drones';
+  : 'https://drone-servey-server.vercel.app/api/drones';
 
 // Create config object with authorization header
 const getConfig = (token) => {

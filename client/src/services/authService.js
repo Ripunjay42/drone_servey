@@ -1,7 +1,7 @@
 // client/src/services/authService.js
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/auth';
+const API_URL = 'https://drone-servey-server.vercel.app/api/auth';
 
 // Register new user
 export const register = async (userData) => {

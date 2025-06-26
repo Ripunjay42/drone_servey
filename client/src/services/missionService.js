@@ -4,7 +4,7 @@ import useMissionStore from '../stores/missionStore';
 
 const API_URL = import.meta.env.VITE_API_URL 
   ? `${import.meta.env.VITE_API_URL}/missions`
-  : 'http://localhost:5000/api/missions';
+  : 'https://drone-servey-server.vercel.app/api/missions';
 
 // Create config object with authorization header
 const getConfig = (token) => {
