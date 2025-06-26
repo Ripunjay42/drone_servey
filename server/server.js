@@ -12,6 +12,20 @@ const droneRoutes = require('./routes/droneRoutes'); // Add drone routes
 // Initialize Express app
 const app = express();
 
+
+const allowedOrigins = ['http://localhost:5137', 'https://ride-wise-bay.vercel.app'];
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+  credentials: true,
+}));
+
 // Connect to MongoDB
 connectDB();
 
