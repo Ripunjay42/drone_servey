@@ -13,11 +13,13 @@ import {
   LogOut,
   FileText
 } from 'lucide-react';
+import useAuthStore from '../../stores/authStore';
 
 const Sidebar = ({ isMobile, toggleSidebar }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  const { logout: clearAuthStore } = useAuthStore();
   
   useEffect(() => {
     // Get user data from localStorage
@@ -28,10 +30,20 @@ const Sidebar = ({ isMobile, toggleSidebar }) => {
   }, []);
   
   const handleLogout = () => {
-    // Clear user data from localStorage
+    // Clear all authentication data from localStorage
     localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    // Clear any other app-related data that should be removed on logout
+    localStorage.removeItem('authToken');
+    
+    // Clear Zustand auth store
+    clearAuthStore();
+    
+    // Optional: Clear all localStorage if needed (uncomment if required)
+    // localStorage.clear();
+    
     // Redirect to login page
-    navigate('/login');
+    navigate('/login', { replace: true });
   };
   
   const navItems = [
